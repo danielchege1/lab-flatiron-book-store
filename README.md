@@ -104,3 +104,9 @@ And it's gone!
 [code-injection]:
   https://www.reddit.com/r/learnjavascript/comments/9502x5/is_innerhtml_still_considered_bad/e3p31go/?utm_source=share&utm_medium=web2x&context=3
 [classlist]: https://developer.mozilla.org/en-US/docs/Web/API/Element/classList
+
+## Random Social Posts
+
+Open `random-social.html` to load and display posts from JSONPlaceholder. The
+page fetches the posts asynchronously and shows a status message if the request
+fails. An internet connection is required to load the feed.
