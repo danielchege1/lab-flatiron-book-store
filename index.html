@@ -1,75 +1,15 @@
-// ==========================================
-// 1. THE DATA (Mock data - check your starter file!)
-// ==========================================
-// Your lab likely provides an object like this. If it's already in your file, don't overwrite it!
-const storeData = {
-  name: "Flatbooks",
-  books: [
-    { title: "The Great Gatsby", author: "F. Scott Fitzgerald", price: 10.99 },
-    { title: "1984", author: "George Orwell", price: 8.99 },
-    { title: "To Kill a Mockingbird", author: "Harper Lee", price: 12.50 }
-  ]
-};
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flatbooks</title>
+</head>
+<body>
+    <h1 id="header"></h1>
+    <ul id="book-list"></ul>
 
-// ==========================================
-// CHALLENGE 1: Update Existing Element of title
-// ==========================================
-// Find the title element on the page (change 'h1' to whatever your HTML uses, like '#store-name')
-const titleElement = document.querySelector('h1'); 
-
-if (titleElement) {
-    // Change the text to the store name from our object
-    titleElement.textContent = storeData.name;
-}
-
-// ==========================================
-// BONUS CHALLENGE: Delete Element
-// ==========================================
-// Look for a placeholder element (like a "Loading..." text or a dummy book) and delete it
-const placeholderElement = document.querySelector('.placeholder'); // Change class if needed
-if (placeholderElement) {
-    placeholderElement.remove();
-}
-
-// ==========================================
-// CHALLENGE 2: Create New Elements for each book
-// ==========================================
-// Find the main container where the books should go
-const bookContainer = document.querySelector('#book-list'); // Change to match your HTML ID
-
-// Loop through the array of books
-storeData.books.forEach((book) => {
-    // 1. Create the main wrapper for a single book
-    const bookDiv = document.createElement('div');
-    bookDiv.classList.add('book-item'); // Add a class so you can style it with CSS
-
-    // 2. Create the Title element
-    const bookTitle = document.createElement('h2');
-    bookTitle.textContent = book.title;
-
-    // 3. Create the Author element
-    const bookAuthor = document.createElement('p');
-    bookAuthor.textContent = `By: ${book.author}`;
-
-    // 4. Create the Price element
-    const bookPrice = document.createElement('p');
-    bookPrice.textContent = `Price: $${book.price}`;
-
-    // 5. Build the structure by appending the parts to the wrapper
-    bookDiv.appendChild(bookTitle);
-    bookDiv.appendChild(bookAuthor);
-    bookDiv.appendChild(bookPrice);
-
-    // 6. Append the finished book wrapper to the main container on the page
-    bookContainer.appendChild(bookDiv);
-});
-
-// ==========================================
-// EXPORT (Only needed if your lab uses Jest/Node to test)
-// ==========================================
-// If your lab has a test file (like npm test), it might need this. 
-// If this causes an error in the browser, you can delete it.
-if (typeof module !== 'undefined' && module.exports) {
-    module.exports = { storeData };
-}
-  
+    <!-- This connects your JS file -->
+    <script src="index.js"></script>
+</body>
+</html>
