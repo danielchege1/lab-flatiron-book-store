@@ -1,25 +1,75 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Creating and Inserting DOM Elements</title>
-    <link rel="stylesheet" href="style.css">
-    <script type="text/javascript" defer src="index.js"></script>
-  </head>
-  <body>
-    <header> 
-      <h1 id="header">This is a Bookstore</h1> 
-    </header>
-    <main>
-      <div class="list">
-        <ul id="book-list">
-          <li id = "delete-this">
-            <h3>Example Title</h3>
-            <p>Example Author</p>
-            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQMAAADCCAMAAAB6zFdcAAAAQlBMVEX///+hoaGenp6ampr39/fHx8fOzs7j4+P8/Pyvr6/d3d3FxcX29va6urqYmJjs7OzU1NSlpaW1tbWtra3n5+e/v78TS0zBAAACkUlEQVR4nO3b63KCMBCGYUwUUVEO6v3fagWVY4LYZMbZnff51xaZ5jON7CZNEgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABQb5tvI8qzX4/nH84XG5Upfj2ir2V2E5fZ/XpIX9saMnhkYLIkiyRJjdgMoiEDMmiQgfwM8rSu77ew2wnPoLTmwdZBs0J2BuXrYckcQm4nOoP+WcmWAbcTnUHZPy9eA24nOoN7n0HI54ToDM5k8PjluwyqgNuJzqDoaugPg8gWZ4noDAYLwuIg75fLeeHHsjNIzrZJwWwW+0DNsmEWPjiEZ5AcD8ZUu8VZ8HyQMifvBdIz+PS33i8adu+7Qn4Gn1Tdupl7rlCfQb9seosK7RkcBy1o30iVZ5CPOtDW3WhQnsF13IV3v0p3BqfJRoSpXVepzmA/24+yqeMyzRm4tqOs44lSUwa3yfgOri25av5CPRnklR33VlPnrqSZV09qMsiqSWV082xOz1uPajJ49pTM/f115k6guWa6JGjJ4N1lt8fXN2rv/vysjFaSQdFXBc/KKF04ptFPliclGVR9Bu27XCyeVOkmy5OODAZN9rYyyip/AIPJ8qIig+PoXbf7YdPdncFoSdCQQT4ZceV+MhiFMBy0hgyu0yGvOLI17KwpyGBaHK5jtt0N5GcwLw7XZdB31sRn8O+ziqYro8Vn4CwOV+k6a9Iz+PwRsKC7h+gMfMXhKu/OmuwM/MXhKq8yWnYG/uJw5Uxoy2jRGZTBZ/jboxuSM1guDtdNhKazJjiDbNMe0AxzKUVnkO+jEJxBxNtJzWCTxlNLzSB8KehJ/H+mJGYAjaDjzj9SnHZRuXZiAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAECXP1XDHv7U4SNFAAAAAElFTkSuQmCC">
-          </li>
-        </ul>
-      </div>
-    </main>
-  </body>
-  </html>
+// ==========================================
+// 1. THE DATA (Mock data - check your starter file!)
+// ==========================================
+// Your lab likely provides an object like this. If it's already in your file, don't overwrite it!
+const storeData = {
+  name: "Flatbooks",
+  books: [
+    { title: "The Great Gatsby", author: "F. Scott Fitzgerald", price: 10.99 },
+    { title: "1984", author: "George Orwell", price: 8.99 },
+    { title: "To Kill a Mockingbird", author: "Harper Lee", price: 12.50 }
+  ]
+};
+
+// ==========================================
+// CHALLENGE 1: Update Existing Element of title
+// ==========================================
+// Find the title element on the page (change 'h1' to whatever your HTML uses, like '#store-name')
+const titleElement = document.querySelector('h1'); 
+
+if (titleElement) {
+    // Change the text to the store name from our object
+    titleElement.textContent = storeData.name;
+}
+
+// ==========================================
+// BONUS CHALLENGE: Delete Element
+// ==========================================
+// Look for a placeholder element (like a "Loading..." text or a dummy book) and delete it
+const placeholderElement = document.querySelector('.placeholder'); // Change class if needed
+if (placeholderElement) {
+    placeholderElement.remove();
+}
+
+// ==========================================
+// CHALLENGE 2: Create New Elements for each book
+// ==========================================
+// Find the main container where the books should go
+const bookContainer = document.querySelector('#book-list'); // Change to match your HTML ID
+
+// Loop through the array of books
+storeData.books.forEach((book) => {
+    // 1. Create the main wrapper for a single book
+    const bookDiv = document.createElement('div');
+    bookDiv.classList.add('book-item'); // Add a class so you can style it with CSS
+
+    // 2. Create the Title element
+    const bookTitle = document.createElement('h2');
+    bookTitle.textContent = book.title;
+
+    // 3. Create the Author element
+    const bookAuthor = document.createElement('p');
+    bookAuthor.textContent = `By: ${book.author}`;
+
+    // 4. Create the Price element
+    const bookPrice = document.createElement('p');
+    bookPrice.textContent = `Price: $${book.price}`;
+
+    // 5. Build the structure by appending the parts to the wrapper
+    bookDiv.appendChild(bookTitle);
+    bookDiv.appendChild(bookAuthor);
+    bookDiv.appendChild(bookPrice);
+
+    // 6. Append the finished book wrapper to the main container on the page
+    bookContainer.appendChild(bookDiv);
+});
+
+// ==========================================
+// EXPORT (Only needed if your lab uses Jest/Node to test)
+// ==========================================
+// If your lab has a test file (like npm test), it might need this. 
+// If this causes an error in the browser, you can delete it.
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = { storeData };
+}
   
