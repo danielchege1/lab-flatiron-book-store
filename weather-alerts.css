@@ -1,0 +1,43 @@
+body {
+    margin: 0;
+    padding: 2rem;
+    color: #222;
+    font-family: Arial, sans-serif;
+    background: #f4f6f8;
+}
+
+main {
+    max-width: 760px;
+    margin: 0 auto;
+}
+
+form {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+input,
+button {
+    padding: 0.6rem 0.75rem;
+    font: inherit;
+}
+
+#weather-alerts {
+    display: grid;
+    gap: 1rem;
+}
+
+#weather-alerts article {
+    padding: 1rem 1.25rem;
+    border-left: 4px solid #d97706;
+    border-radius: 6px;
+    background: #fff;
+    box-shadow: 0 2px 8px rgb(0 0 0 / 10%);
+}
+
+#weather-alerts h2 {
+    margin-top: 0;
+}

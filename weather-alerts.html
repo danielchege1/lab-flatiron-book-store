@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>U.S. Weather Alerts</title>
+    <link rel="stylesheet" href="weather-alerts.css">
+</head>
+<body>
+    <main>
+        <h1>U.S. Weather Alerts</h1>
+        <p><a href="index.html">Back to Flatbooks</a></p>
+        <form id="weather-form">
+            <label for="state-input">State abbreviation</label>
+            <input
+                id="state-input"
+                name="state"
+                type="text"
+                maxlength="2"
+                autocomplete="off"
+                placeholder="e.g. CA"
+                required
+            >
+            <button type="submit">Get alerts</button>
+        </form>
+        <p id="weather-status" role="status" aria-live="polite"></p>
+        <section id="weather-alerts" aria-label="Weather alerts"></section>
+    </main>
+    <script src="weather-alerts.js"></script>
+</body>
+</html>

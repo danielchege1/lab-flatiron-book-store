@@ -110,3 +110,9 @@ And it's gone!
 Open `random-social.html` to load and display posts from JSONPlaceholder. The
 page fetches the posts asynchronously and shows a status message if the request
 fails. An internet connection is required to load the feed.
+
+## Weather Alerts
+
+Open `weather-alerts.html` to search active National Weather Service alerts by
+two-letter state abbreviation. The page uses the public weather.gov API and
+requires an internet connection.
