@@ -78,9 +78,7 @@ async function handleWeatherSubmit(event, fetchFunction = fetch) {
     }
 
     status.dataset.state = 'loading';
-    status.textContent = 'Loading weather alerts...';
-
-    try {
+    status.textContent = 'Loading weather alerts...';    try {
         const data = await fetchWeatherData(state, fetchFunction);
         displayWeather(data, alertsContainer);
         status.dataset.state = 'success';
